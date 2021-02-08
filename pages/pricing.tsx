@@ -1,4 +1,3 @@
-import FeatureGrid from "components/Features"
 import Layout, { ContentWidth } from "components/Layout"
 import Pricing from "components/Pricing"
 
@@ -8,7 +7,6 @@ const PricingPage = () => {
       <div className="pt-10 pb-32">
         <ContentWidth>
           <Pricing />
-          <FeatureGrid />
         </ContentWidth>
       </div>
     </Layout>

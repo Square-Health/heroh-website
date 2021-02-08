@@ -5,10 +5,15 @@ const Pricing = () => (
     id="pricing"
     className="flex flex-col space-y-10 w-full items-center text-center mt-10 lg:mt-20"
   >
-    <h3 className="text-4xl md:text-4xl lg:text-5xl font-extrabold font-fira text-gray-800 underline">
-      Pricing: 3$ per certificate
-    </h3>
+    <div className="flex flex-col space-y-5">
+      <h3 className="text-4xl md:text-4xl lg:text-5xl font-extrabold font-fira text-gray-800 underline">
+        Pricing: 3$ per certificate
+      </h3>
 
+      <p className="text-gray-800 font-medium font-fira text-lg sm:text-2xl sm:max-w-4xl">
+        R50.00 in South Africa
+      </p>
+    </div>
     <p className="text-gray-700 font-medium text-md sm:text-xl sm:max-w-4xl">
       If you operate in occupational health, this is the plan for you. Includes
       every feature we offer plus unlimited clients, unlimited teams, and no per

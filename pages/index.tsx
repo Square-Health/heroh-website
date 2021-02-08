@@ -10,7 +10,7 @@ const Home = () => {
       <ContentWidth>
         <div className="flex flex-col items-center pt-20 mx-auto text-center space-y-4">
           <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold font-fira text-gray-50">
-            Occupational Health Tools
+            Occupational Health Suite
           </h2>
 
           <p className="text-gray-300 font-medium text-md sm:text-lg max-w-md sm:max-w-xl">
@@ -25,7 +25,7 @@ const Home = () => {
         <Definition />
       </ContentWidth>
 
-      <div className="flex flex-col space-y-36 max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 mt-28">
+      <div className="flex flex-col space-y-14 sm:space-y-36 max-w-5xl mx-auto px-2 sm:px-6 lg:px-8 mt-28">
         <InfoSectionLeft
           title="Manage Electronic Health Records"
           imgSrc="/ehr.png"
@@ -82,7 +82,7 @@ const Definition = () => (
 
 const InfoSectionLeft = ({ title, imgSrc, children }) => (
   <div className="flex flex-col md:flex-row space-x-0 md:space-x-20 items-center">
-    <div className="flex flex-col flex-1 space-y-5 md:space-y-10 order-last md:order-first mt-20 md:mt-0">
+    <div className="flex flex-col flex-1 space-y-5 md:space-y-10 order-last md:order-first mt-12 md:mt-0">
       <h3 className="text-4xl md:text-5xl font-black text-gray-800">{title}</h3>
       <p className="text-2xl text-gray-700">{children}</p>
     </div>
@@ -105,7 +105,7 @@ const InfoSectionRight = ({ title, imgSrc, children }) => (
         alt=""
       />
     </div>
-    <div className="flex flex-col flex-1 space-y-5 md:space-y-10 mt-20 md:mt-0">
+    <div className="flex flex-col flex-1 space-y-5 md:space-y-10 mt-12 md:mt-0">
       <h3 className="text-4xl md:text-5xl font-black text-gray-800">{title}</h3>
       <p className="text-2xl text-gray-700">{children}</p>
     </div>

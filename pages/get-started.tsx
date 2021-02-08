@@ -1,7 +1,8 @@
+import { useForm as useFormspree } from "@formspree/react"
+import { useForm } from "react-hook-form"
+
 import { InputGroup, Label, Input, Container } from "components/Contact"
 import Layout, { Dark } from "components/Layout"
-import { useForm } from "react-hook-form"
-import { useForm as useFormspree } from "@formspree/react"
 import ErrorMessage from "components/ErrorMessage"
 
 const GetStartedPage = () => {

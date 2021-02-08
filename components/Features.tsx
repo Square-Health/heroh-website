@@ -3,7 +3,7 @@ const FeatureGrid = () => (
     id="features"
     className="flex flex-col items-center text-center mx-5 my-20"
   >
-    <h3 className="text-3xl font-extrabold">Features</h3>
+    <h3 className="text-4xl font-extrabold">Features</h3>
     <p className="text-gray-700 font-medium text-md sm:text-xl sm:max-w-4xl my-2 pb-10">
       Some highlights include...
     </p>
@@ -21,21 +21,34 @@ const FeatureGrid = () => (
         description="A dedicated space to manage your entire clinic."
       />
       <FeatureGridItem
+        title="Supervision"
+        description="Perform oversight until your staff can work independently."
+      />
+      <FeatureGridItem
+        title="Obtain opinion"
+        description="Request reviews, opinions or advice from peers."
+      />
+      <FeatureGridItem
+        title="Electronic Signatures"
+        description="No need for signature pads."
+      />
+      <FeatureGridItem
         title="Team managment"
-        description="Manage your workforce permissions with our teams editor."
+        // description="Manage your workforce permissions with our teams editor."
+        description="Manage your workforce permissions."
       />
       <FeatureGridItem
         title="Unlimited clients"
         description="Work with clients &amp; contractors in Heroh."
       />
-      <FeatureGridItem
+      {/* <FeatureGridItem
         title="Advanced client access"
         description="Gain total control over what clients can see."
-      />
-      <FeatureGridItem
+      /> */}
+      {/* <FeatureGridItem
         title="Industry templates"
         description="All your OH forms and templates are ready to go with one click."
-      />
+      /> */}
       <FeatureGridItem
         title="Priority support"
         description="Jump to the front of the line when you need help."
