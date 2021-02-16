@@ -6,8 +6,20 @@ export const Layout = ({ children, bg = "" }) => {
   return (
     <div className={bg}>
       <Head>
-        <title>Heroh | Occupational Health</title>
+        <title>Heroh | Occupational Health Suite</title>
         <link rel="icon" href="/favicon.ico" />
+        <meta property="og:image" content="https://heroh.africa/screen.png" />
+        <meta property="og:description" content="Occupational Health Suite." />
+        <meta
+          name="description"
+          content="Heroh is the best platform for managing the health of your clients and employees. We handle thousands of records every year for forward thinking businesses in Africa."
+        ></meta>
+        <meta
+          property="og:site_name"
+          content="Heroh | Occupational Health Suite"
+        />
+        <meta property="og:title" content="Heroh | Occupational Health Suite" />
+        <meta property="og:url" content="https:/heroh.africa" />
       </Head>
 
       <Navbar />
