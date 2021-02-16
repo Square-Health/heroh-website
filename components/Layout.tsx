@@ -26,7 +26,7 @@ export const ContentWidth = ({ children }) => (
 )
 
 export const Dark = () => (
-  <div className="absolute bg-gray-800 h-3/5 md:h-4/5 lg:h-screen xl:h-2/3 2xl:h-1/2 w-full transform -skew-y-3 -top-0" />
+  <div className="absolute bg-gray-800 h-3/5 md:h-4/5 lg:h-5/6 xl:h-5/6 2xl:h-1/2 w-full transform -skew-y-3 -top-0" />
 )
 
 export default Layout
