@@ -90,7 +90,7 @@ const InfoSectionLeft = ({ title, imgSrc, children }) => (
       <img
         src={imgSrc}
         className="shadow-lg rounded-xl transform rotate-0 md:rotate-2 w-3/4 md:w-auto"
-        alt=""
+        alt="Image of Heroh"
       />
     </div>
   </div>
@@ -102,7 +102,7 @@ const InfoSectionRight = ({ title, imgSrc, children }) => (
       <img
         src={imgSrc}
         className="shadow-lg rounded-xl transform rotate-0 md:-rotate-2 w-3/4 md:w-auto"
-        alt=""
+        alt="Image of Heroh"
       />
     </div>
     <div className="flex flex-col flex-1 space-y-5 md:space-y-10 mt-12 md:mt-0">
@@ -113,7 +113,7 @@ const InfoSectionRight = ({ title, imgSrc, children }) => (
 )
 
 const HerohImage = () => (
-  <img className="w-4/5 mx-auto" src="/screen.png" alt="Screenshot" />
+  <img className="w-4/5 mx-auto" src="/screen.png" alt="Image of Heroh" />
 )
 
 // const WhatIsACertificate = () => (

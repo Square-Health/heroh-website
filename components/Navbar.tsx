@@ -121,14 +121,14 @@ const Logos = () => (
         className="block lg:hidden h-8"
         // src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
         src="/heroh.png"
-        alt="Workflow"
+        alt="Heroh Logo"
       />
       {/* Desktop logo */}
       <img
         className="hidden lg:block h-6 w-auto"
         // src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
         src="/heroh.png"
-        alt="Workflow"
+        alt="Heroh Logo"
       />
     </div>
   </Link>
