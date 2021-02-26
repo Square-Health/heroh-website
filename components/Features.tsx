@@ -33,7 +33,7 @@ const FeatureGrid = () => (
         description="No need for signature pads."
       />
       <FeatureGridItem
-        title="Team managment"
+        title="Team management"
         // description="Manage your workforce permissions with our teams editor."
         description="Manage your workforce permissions."
       />
