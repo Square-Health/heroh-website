@@ -1,11 +1,19 @@
-import { forwardRef } from "react"
-import { useForm } from "react-hook-form"
-import { useForm as useFormspree } from "@formspree/react"
-import ErrorMessage from "components/ErrorMessage"
+import { forwardRef } from 'react'
+import { useForm } from 'react-hook-form'
+import { useForm as useFormspree } from '@formspree/react'
+import ErrorMessage from 'components/ErrorMessage'
 
 export const ContactCard = () => {
-  const [serverState, sendToFormspree] = useFormspree("xwkwzvya")
-  const { register, handleSubmit, errors, formState } = useForm()
+  const [serverState, sendToFormspree] = useFormspree('xwkwzvya')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, ...formState },
+  } = useForm()
+
+  const hello = (data) => {
+    alert(JSON.stringify(data, null, 2))
+  }
 
   return (
     <Card>
@@ -20,15 +28,19 @@ export const ContactCard = () => {
             <Input
               name="name"
               placeholder="Your name"
-              ref={register({
-                required: "Required",
+              {...register('name', {
+                required: 'Required',
               })}
             />
             {errors.name && <ErrorMessage>{errors.name.message}</ErrorMessage>}
           </InputGroup>
           <InputGroup>
             <Label htmlFor="company">Company</Label>
-            <Input ref={register} name="name" placeholder="Your company" />
+            <Input
+              {...register('name')}
+              name="name"
+              placeholder="Your company"
+            />
           </InputGroup>
           <InputGroup>
             <Label htmlFor="email">Email Address</Label>
@@ -36,11 +48,12 @@ export const ContactCard = () => {
               name="email"
               placeholder="you@example.com"
               type="email"
-              ref={register({
-                required: "Required",
+              {...register('email', {
+                required: 'Required',
                 pattern: {
-                  value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                  message: "Should be an email",
+                  value:
+                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                  message: 'Should be an email',
                 },
               })}
             />
@@ -51,25 +64,30 @@ export const ContactCard = () => {
           <InputGroup>
             <Label htmlFor="message">Message</Label>
             <textarea
-              ref={register}
+              {...register('message', {
+                required: 'Required',
+              })}
               name="message"
               id="message"
               cols={30}
               rows={3}
-              className="rounded-md shadow-sm border border-gray-300 px-3 py-2"
+              className="px-3 py-2 border border-gray-300 rounded-md shadow-sm"
               placeholder="How can we help you?"
             ></textarea>
+            {errors.message && (
+              <ErrorMessage>{errors.message.message}</ErrorMessage>
+            )}
             <button
               type="submit"
               disabled={!!Object.keys(errors).length || serverState.submitting}
-              className="bg-gray-800 text-gray-50 px-3 py-2 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-700"
+              className="px-3 py-2 text-lg font-semibold bg-gray-800 rounded-md cursor-pointer text-gray-50 hover:bg-gray-700"
             >
               {serverState.succeeded ? (
-                "Thanks!"
+                'Thanks!'
               ) : formState.isSubmitting ? (
-                "Submitting..."
+                'Submitting...'
               ) : (
-                <div className="flex flex-row items-center space-x-2 justify-center">
+                <div className="flex flex-row items-center justify-center space-x-2">
                   <svg
                     className="h-5"
                     xmlns="http://www.w3.org/2000/svg"
@@ -94,7 +112,7 @@ const Contact = () => {
   return (
     <Container>
       <h3 className="text-4xl font-extrabold">Contact Us</h3>
-      <span className="text-gray-700 text-lg pb-8">
+      <span className="pb-8 text-lg text-gray-700">
         We'll get back to you as soon as possible.
       </span>
       <ContactCard />
@@ -106,31 +124,34 @@ export const InputGroup = ({ children }) => (
   <div className="flex flex-col space-y-2">{children}</div>
 )
 
-export const Input = forwardRef((props: any, ref: any) => (
+export const Input = (props: any, ref: any) => (
   <input
     type="text"
-    ref={ref}
     name={props.name}
     placeholder={props.placeholder}
     id={props.name}
-    className="rounded-md shadow-sm border border-gray-300 px-3 py-2"
+    className="px-3 py-2 border border-gray-300 rounded-md shadow-sm"
+    {...props}
   />
-))
+)
 
 export const Label = ({ children, htmlFor }) => (
-  <label htmlFor={htmlFor} className="text-md text-gray-700 font-medium">
+  <label htmlFor={htmlFor} className="font-medium text-gray-700 text-md">
     {children}
   </label>
 )
 
 export const Container = ({ children }) => (
-  <div id="contact" className="relative flex flex-col align-middle items-center py-12 px-0 md:px-4 lg:px-8 max-w-xl space-y-3 mx-auto">
+  <div
+    id="contact"
+    className="relative flex flex-col items-center max-w-xl px-0 py-12 mx-auto space-y-3 align-middle md:px-4 lg:px-8"
+  >
     {children}
   </div>
 )
 
 export const Card = ({ children }) => (
-  <div className="sm:bg-white bg-gray-50 mt-8 w-full rounded-lg px-6 md:mx-10 py-0 sm:py-10 shadow-none sm:shadow-md">
+  <div className="w-full px-6 py-0 mt-8 rounded-lg shadow-none sm:bg-white bg-gray-50 md:mx-10 sm:py-10 sm:shadow-md">
     {children}
   </div>
 )
