@@ -1,19 +1,23 @@
-import { useForm as useFormspree } from "@formspree/react"
-import { useForm } from "react-hook-form"
+import { useForm as useFormspree } from '@formspree/react'
+import { useForm } from 'react-hook-form'
 
-import { InputGroup, Label, Input, Container } from "components/Contact"
-import Layout, { Dark } from "components/Layout"
-import ErrorMessage from "components/ErrorMessage"
+import { InputGroup, Label, Input, Container } from 'components/Contact'
+import Layout, { Dark } from 'components/Layout'
+import ErrorMessage from 'components/ErrorMessage'
 
 const GetStartedPage = () => {
-  const [serverState, sendToFormspree] = useFormspree("xbjpbyrj")
-  const { register, handleSubmit, errors, formState } = useForm()
+  const [serverState, sendToFormspree] = useFormspree('xbjpbyrj')
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, ...formState },
+  } = useForm()
   return (
     <Layout bg="bg-gray-50">
       <Dark />
       <Container>
-        <h3 className="text-4xl text-gray-50 font-extrabold">Get Started</h3>
-        <span className="text-gray-300 text-lg pb-8">
+        <h3 className="text-4xl font-extrabold text-gray-50">Get Started</h3>
+        <span className="pb-8 text-lg text-gray-300">
           Reach out to us and we'll get you set up!
         </span>
 
@@ -29,8 +33,8 @@ const GetStartedPage = () => {
                 <Input
                   name="name"
                   placeholder="Your name"
-                  ref={register({
-                    required: "Required",
+                  {...register('name', {
+                    required: 'Required',
                   })}
                 />
                 {errors.name && (
@@ -39,7 +43,11 @@ const GetStartedPage = () => {
               </InputGroup>
               <InputGroup>
                 <Label htmlFor="company">Company</Label>
-                <Input ref={register} name="name" placeholder="Your company" />
+                <Input
+                  {...register('name')}
+                  name="name"
+                  placeholder="Your company"
+                />
               </InputGroup>
               <InputGroup>
                 <Label htmlFor="email">Email Address</Label>
@@ -47,11 +55,12 @@ const GetStartedPage = () => {
                   name="email"
                   placeholder="you@example.com"
                   type="email"
-                  ref={register({
-                    required: "Required",
+                  {...register('email', {
+                    required: 'Required',
                     pattern: {
-                      value: /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                      message: "Should be an email",
+                      value:
+                        /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                      message: 'Should be an email',
                     },
                   })}
                 />
@@ -62,12 +71,12 @@ const GetStartedPage = () => {
               <InputGroup>
                 <Label htmlFor="message">Message</Label>
                 <textarea
-                  ref={register}
+                  {...register('message')}
                   name="message"
                   id="message"
                   cols={30}
                   rows={3}
-                  className="rounded-md shadow-sm border border-gray-300 px-3 py-2"
+                  className="px-3 py-2 border border-gray-300 rounded-md shadow-sm"
                   placeholder="How are you planning on using Heroh?"
                 ></textarea>
                 <button
@@ -75,14 +84,14 @@ const GetStartedPage = () => {
                   disabled={
                     !!Object.keys(errors).length || serverState.submitting
                   }
-                  className="bg-gray-800 text-gray-50 px-3 py-2 rounded-md text-lg font-semibold cursor-pointer hover:bg-gray-700"
+                  className="px-3 py-2 text-lg font-semibold bg-gray-800 rounded-md cursor-pointer text-gray-50 hover:bg-gray-700"
                 >
                   {serverState.succeeded ? (
-                    "Thanks!"
+                    'Thanks!'
                   ) : formState.isSubmitting ? (
-                    "Submitting..."
+                    'Submitting...'
                   ) : (
-                    <div className="flex flex-row items-center space-x-2 justify-center">
+                    <div className="flex flex-row items-center justify-center space-x-2">
                       <svg
                         className="h-5"
                         xmlns="http://www.w3.org/2000/svg"
@@ -106,7 +115,7 @@ const GetStartedPage = () => {
 }
 
 const Card = ({ children }) => (
-  <div className="sm:bg-white bg-gray-50 mt-8 w-full rounded-none sm:rounded-lg px-6 md:mx-10 py-12 sm:py-10 shadow-none sm:shadow-md">
+  <div className="w-full px-6 py-12 mt-8 rounded-none shadow-none sm:bg-white bg-gray-50 sm:rounded-lg md:mx-10 sm:py-10 sm:shadow-md">
     {children}
   </div>
 )
