@@ -32,7 +32,7 @@ const Home = () => {
       <div className="flex flex-col max-w-5xl px-2 mx-auto space-y-14 sm:space-y-36 sm:px-6 lg:px-8 mt-28">
         <InfoSectionLeft
           title="Manage Electronic Health Records"
-          imgSrc="/ehr.png"
+          imgSrc="/dashboard.png"
         >
           Create, update, monitor and track Electronic Health Records for your
           clients or employees and easily set permissions and alerts for your OH
