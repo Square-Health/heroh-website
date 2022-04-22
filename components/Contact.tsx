@@ -37,7 +37,7 @@ export const ContactCard = () => {
           <InputGroup>
             <Label htmlFor="company">Company</Label>
             <Input
-              {...register('name')}
+              {...register('company')}
               name="name"
               placeholder="Your company"
             />
