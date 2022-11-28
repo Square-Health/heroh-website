@@ -1,25 +1,25 @@
-import { forwardRef } from 'react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { useForm as useFormspree } from '@formspree/react'
 import ErrorMessage from 'components/ErrorMessage'
 
 export const ContactCard = () => {
-  const [serverState, sendToFormspree] = useFormspree('xwkwzvya')
+  const { executeRecaptcha } = useGoogleReCaptcha()
+
+  const [serverState, sendToFormspree] = useFormspree('xwkwzvya', {
+    data: { 'g-recaptcha-response': executeRecaptcha },
+  })
   const {
     register,
     handleSubmit,
     formState: { errors, ...formState },
   } = useForm()
 
-  const hello = (data) => {
-    alert(JSON.stringify(data, null, 2))
-  }
-
   return (
     <Card>
       <form
         onSubmit={handleSubmit(sendToFormspree)}
-        action="https://formspree.io/f/xwkwzvya"
+        // action="https://formspree.io/f/xwkwzvya"
         method="POST"
       >
         <div className="flex flex-col space-y-3">
@@ -104,6 +104,8 @@ export const ContactCard = () => {
           </InputGroup>
         </div>
       </form>
+
+      <div className="mt-4" id="recaptcha_badge"></div>
     </Card>
   )
 }
@@ -124,7 +126,7 @@ export const InputGroup = ({ children }) => (
   <div className="flex flex-col space-y-2">{children}</div>
 )
 
-export const Input = (props: any, ref: any) => (
+export const Input = (props: any) => (
   <input
     type="text"
     name={props.name}

@@ -1,4 +1,5 @@
 import { useForm as useFormspree } from '@formspree/react'
+import { useGoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 
 import { InputGroup, Label, Input, Container } from 'components/Contact'
@@ -6,7 +7,11 @@ import Layout, { Dark } from 'components/Layout'
 import ErrorMessage from 'components/ErrorMessage'
 
 const GetStartedPage = () => {
-  const [serverState, sendToFormspree] = useFormspree('xbjpbyrj')
+  const { executeRecaptcha } = useGoogleReCaptcha()
+
+  const [serverState, sendToFormspree] = useFormspree('xbjpbyrj', {
+    data: { 'g-recaptcha-response': executeRecaptcha },
+  })
   const {
     register,
     handleSubmit,
@@ -108,6 +113,8 @@ const GetStartedPage = () => {
               </InputGroup>
             </div>
           </form>
+
+          <div className="mt-4" id="recaptcha_badge"></div>
         </Card>
       </Container>
     </Layout>
